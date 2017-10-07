@@ -14,7 +14,7 @@ export class ApiService {
       firstName: 'John',
       lastName: 'Doe',
       jobTitle: 'Engineer'
-    }).delay(15000);
+    }).delay(3000);
   }
 
 }

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ProfileResolver } from './profile.resolver';
 import { routes } from 'app/app.routes';
 import { storeReducers } from './app.state';
+import { SpinnerComponentModule } from 'ng2-component-spinner';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { storeReducers } from './app.state';
   ],
   imports: [
     BrowserModule,
+    SpinnerComponentModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(storeReducers),
   ],
