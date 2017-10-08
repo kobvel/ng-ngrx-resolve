@@ -1,3 +1,4 @@
+import { IProfileData } from './profile.model';
 import { OnInit, OnDestroy, Component } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
 import { ApiService } from '../api.service';
@@ -7,17 +8,13 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-profile',
   templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
 
-  public profileData$: Subscription;
-  public data;
+  public profileData: IProfileData;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot);
-  }
-
-  ngOnDestroy() {
+    this.profileData = this.route.snapshot.data.profileData;
   }
 }

@@ -1,1 +1,31 @@
-<h1>Hello</h1>
+<h2>Profile information</h2>
+<form novalidate>
+    <div>
+        <label>
+            <span>First name</span>
+            <input
+                type="text"
+                name="firstname"
+                [value]="profileData.firstName">
+        </label>
+    </div>
+    <div>
+        <label>
+            <span>Last name</span>
+            <input
+                type="text"
+                name="lastname"
+                [value]="profileData.lastName">
+        </label>
+    </div>
+    <div>
+        <label>
+            <span>Job title</span>
+            <input
+                type="text"
+                name="job"
+                [value]="profileData.jobTitle">
+        </label>
+    </div>
+
+</form>
