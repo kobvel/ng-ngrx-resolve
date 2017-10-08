@@ -23,8 +23,8 @@ export class ProfileResolver implements Resolve<IProfileData> {
     });
 
     return this.store.select('profile')
-      .filter(profile => !!profile.profileData)
       .map(store => store.profileData)
+      .filter(profileData => !!profileData)
       .take(1);
   }
 }
