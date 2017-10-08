@@ -14,6 +14,19 @@ export class ProfileResolver implements Resolve<IProfileData> {
 
   resolve(): Observable<IProfileData> {
 
+    this.initProfileData();
+
+    return this.waitForProfileDataToLoad();
+  }
+
+  waitForProfileDataToLoad(): Observable<IProfileData> {
+    return this.store.select('profile')
+      .map(store => store.profileData)
+      .filter(profileData => !!profileData)
+      .take(1);
+  }
+
+  initProfileData(): void {
     this.store.take(1).subscribe(store => {
       if (!store.profile.profileData) {
         this.apiService.getProfileData().toPromise().then(data => {
@@ -21,10 +34,5 @@ export class ProfileResolver implements Resolve<IProfileData> {
         });
       }
     });
-
-    return this.store.select('profile')
-      .map(store => store.profileData)
-      .filter(profileData => !!profileData)
-      .take(1);
   }
 }
