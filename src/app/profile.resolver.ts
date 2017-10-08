@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppState } from './app.state';
@@ -10,10 +10,9 @@ import { ApiService } from './api.service';
 
 @Injectable()
 export class ProfileResolver implements Resolve<IProfileData> {
-  constructor(private apiService: ApiService, private store: Store<IAppState>) {
-  }
+  constructor(private apiService: ApiService, private store: Store<IAppState>) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProfileData> {
+  resolve(): Observable<IProfileData> {
 
     this.store.take(1).subscribe(store => {
       if (!store.profile.profileData) {
