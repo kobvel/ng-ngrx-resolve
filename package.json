@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "@ngrx/store": "^4.0.3",
-    "angular2-spinner": "^1.0.10",
     "core-js": "^2.4.1",
     "ng2-component-spinner": "^0.2.1",
     "rxjs": "^5.1.0",
